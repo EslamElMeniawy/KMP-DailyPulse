@@ -27,8 +27,17 @@ kotlin {
     
     sourceSets {
         commonMain.dependencies {
-            // put your Multiplatform dependencies here
+            implementation(libs.kotlinx.coroutines.core)
         }
+
+        androidMain.dependencies {
+            implementation(libs.androidx.lifecycle.viewmodel.ktx)
+        }
+
+        iosMain.dependencies {
+            // put your iOS dependencies here
+        }
+
         commonTest.dependencies {
             implementation(libs.kotlin.test)
         }
@@ -38,10 +47,12 @@ kotlin {
 android {
     namespace = "elmeniawy.eslam.dailypulse.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
     }
