@@ -9,6 +9,6 @@ import kotlinx.coroutines.CoroutineScope
  *
  * Created by Eslam El-Meniawy on 15-Jul-2025 at 4:27 PM.
  */
-expect open class BaseViewModel {
+expect open class BaseViewModel() {
     val scope: CoroutineScope
 }
