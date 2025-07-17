@@ -1,9 +1,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var showContent = false
+    @State private var shouldOpenSystenInfo = false
+
     var body: some View {
-        ArticlesScreen(viewModel: .init())
+        NavigationStack {
+            ArticlesScreen(viewModel: .init())
+                .toolbar {
+                    ToolbarItem {
+                        Button {
+                            shouldOpenSystenInfo = true
+                        } label: {
+                            Label("System Info", systemImage: "info.circle")
+                                .labelStyle(.titleAndIcon)
+                        }
+                        .popover(isPresented: $shouldOpenSystenInfo) {
+                            SystemInfoScreen()
+                        }
+                    }
+                }
+        }
     }
 }
 
