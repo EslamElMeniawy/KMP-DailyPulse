@@ -22,6 +22,9 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor3)
+            implementation(libs.androidx.navigation.compose)
         }
 
         commonMain.dependencies {
@@ -31,8 +34,8 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodel)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.jetbrains.androidx.lifecycle.viewmodel)
+            implementation(libs.jetbrains.androidx.lifecycle.runtimeCompose)
             implementation(projects.shared)
         }
 
@@ -71,6 +74,4 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
-    implementation(libs.coil.compose)
-    implementation(libs.coil.network.ktor3)
 }

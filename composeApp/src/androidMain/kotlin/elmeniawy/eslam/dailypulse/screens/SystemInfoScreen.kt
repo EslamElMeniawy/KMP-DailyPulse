@@ -5,8 +5,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -23,17 +27,27 @@ import elmeniawy.eslam.dailypulse.SystemInfo
  */
 
 @Composable
-fun SystemInfoScreen() {
+fun SystemInfoScreen(onBackButtonClick: () -> Unit) {
     Column {
-        Toolbar()
+        Toolbar(onBackButtonClick)
         ContentView()
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-private fun Toolbar() {
-    TopAppBar(title = { Text(text = "System Info") })
+private fun Toolbar(onBackButtonClick: () -> Unit) {
+    TopAppBar(
+        title = { Text(text = "System Info") },
+        navigationIcon = {
+            IconButton(onClick = onBackButtonClick) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "Back Button"
+                )
+            }
+        }
+    )
 }
 
 @Composable
