@@ -34,6 +34,7 @@ import coil3.compose.AsyncImage
 import elmeniawy.eslam.dailypulse.TAG
 import elmeniawy.eslam.dailypulse.articles.Article
 import elmeniawy.eslam.dailypulse.articles.ArticlesViewModel
+import org.koin.androidx.compose.koinViewModel
 
 /**
  * ArticlesScreen
@@ -42,7 +43,10 @@ import elmeniawy.eslam.dailypulse.articles.ArticlesViewModel
  */
 
 @Composable
-fun ArticlesScreen(onSystemInfoButtonClick: () -> Unit, articlesViewModel: ArticlesViewModel) {
+fun ArticlesScreen(
+    onSystemInfoButtonClick: () -> Unit,
+    articlesViewModel: ArticlesViewModel = koinViewModel()
+) {
     val articlesState = articlesViewModel.articlesState.collectAsState()
 
     Column {

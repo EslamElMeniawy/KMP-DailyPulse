@@ -11,7 +11,6 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import elmeniawy.eslam.dailypulse.articles.ArticlesViewModel
 import elmeniawy.eslam.dailypulse.screens.ArticlesScreen
 import elmeniawy.eslam.dailypulse.screens.Screens
 import elmeniawy.eslam.dailypulse.screens.SystemInfoScreen
@@ -23,7 +22,7 @@ import elmeniawy.eslam.dailypulse.screens.SystemInfoScreen
  */
 
 @Composable
-fun AppScaffold(articlesViewModel: ArticlesViewModel) {
+fun AppScaffold() {
     val navController = rememberNavController()
 
     Scaffold(contentWindowInsets = WindowInsets(0.dp)) {
@@ -31,8 +30,7 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
             navController = navController,
             modifier = Modifier
                 .fillMaxSize()
-                .padding(it),
-            articlesViewModel = articlesViewModel
+                .padding(it)
         )
     }
 }
@@ -41,7 +39,6 @@ fun AppScaffold(articlesViewModel: ArticlesViewModel) {
 fun AppNavHost(
     navController: NavHostController,
     modifier: Modifier = Modifier,
-    articlesViewModel: ArticlesViewModel
 ) {
     NavHost(
         navController = navController,
@@ -50,8 +47,7 @@ fun AppNavHost(
     ) {
         composable(Screens.ARTICLES.route) {
             ArticlesScreen(
-                onSystemInfoButtonClick = { navController.navigate(Screens.SYSTEM_INFO.route) },
-                articlesViewModel = articlesViewModel
+                onSystemInfoButtonClick = { navController.navigate(Screens.SYSTEM_INFO.route) }
             )
         }
         composable(Screens.SYSTEM_INFO.route) {
