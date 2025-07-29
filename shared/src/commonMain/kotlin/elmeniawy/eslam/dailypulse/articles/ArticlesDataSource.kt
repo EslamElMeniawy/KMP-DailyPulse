@@ -11,9 +11,9 @@ class ArticlesDataSource(private val _database: DailyPulseDatabase) {
     fun getAllArticles(): List<ArticleRaw> =
         _database.dailyPulseDatabaseQueries.selectAllArticles(::mapToArticlesRaw).executeAsList()
 
-    fun insertArticles(articles: List<ArticleRaw>) {
+    fun insertArticles(articles: List<ArticleRaw>?) {
         _database.dailyPulseDatabaseQueries.transaction {
-            articles.forEach { article ->
+            articles?.forEach { article ->
                 insertArticle(article)
             }
         }
