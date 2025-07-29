@@ -1,5 +1,6 @@
 package elmeniawy.eslam.dailypulse.articles
 
+import elmeniawy.eslam.dailypulse.BuildKonfig.API_KEY
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
@@ -12,11 +13,10 @@ import io.ktor.client.request.get
 class ArticlesService(private val _httpClient: HttpClient) {
     private val _country = "us"
     private val _category = "technology"
-    private val _apiKey = "de4f2ed5402340a4bf9d72ee19f11b43"
 
     suspend fun fetchArticles(): List<ArticleRaw>? {
         val response: ArticlesResponse =
-            _httpClient.get("https://newsapi.org/v2/top-headlines?country=$_country&category=$_category&apiKey=$_apiKey")
+            _httpClient.get("https://newsapi.org/v2/top-headlines?country=$_country&category=$_category&apiKey=$API_KEY")
                 .body()
 
         return response.articles
