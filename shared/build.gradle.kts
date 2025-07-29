@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.touchlabSkie)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.buildKonfig)
+    alias(libs.plugins.sqlDelight)
 }
 
 kotlin {
@@ -38,15 +39,18 @@ kotlin {
             implementation(libs.ktor.serialization.kotlinx.json)
             implementation(libs.kotlinx.datetime)
             implementation(libs.koin.core)
+            implementation(libs.sqlDelight.coroutines.extensions)
         }
 
         androidMain.dependencies {
             implementation(libs.androidx.lifecycle.viewmodel.ktx)
             implementation(libs.ktor.client.android)
+            implementation(libs.sqlDelight.android.driver)
         }
 
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+            implementation(libs.sqlDelight.native.driver)
         }
 
         commonTest.dependencies {
@@ -80,5 +84,13 @@ buildkonfig {
         }
 
         buildConfigField(FieldSpec.Type.STRING, "API_KEY", apiKey)
+    }
+}
+
+sqldelight {
+    databases {
+        create(name = "DailyPulseDatabase") {
+            packageName.set("elmeniawy.eslam.dailypulse.db")
+        }
     }
 }
