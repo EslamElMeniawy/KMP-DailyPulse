@@ -1,5 +1,7 @@
 package elmeniawy.eslam.dailypulse.articles.di
 
+import elmeniawy.eslam.dailypulse.articles.ArticlesDataSource
+import elmeniawy.eslam.dailypulse.articles.ArticlesRepository
 import elmeniawy.eslam.dailypulse.articles.ArticlesService
 import elmeniawy.eslam.dailypulse.articles.ArticlesUseCase
 import elmeniawy.eslam.dailypulse.articles.ArticlesViewModel
@@ -12,7 +14,9 @@ import org.koin.dsl.module
  */
 
 val articlesModule = module {
+    single<ArticlesDataSource> { ArticlesDataSource(get()) }
     single<ArticlesService> { ArticlesService(get()) }
+    single<ArticlesRepository> { ArticlesRepository(get(), get()) }
     single<ArticlesUseCase> { ArticlesUseCase(get()) }
     single<ArticlesViewModel> { ArticlesViewModel(get()) }
 }

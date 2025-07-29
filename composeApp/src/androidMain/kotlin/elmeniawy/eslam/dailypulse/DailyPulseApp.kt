@@ -1,6 +1,7 @@
 package elmeniawy.eslam.dailypulse
 
 import android.app.Application
+import elmeniawy.eslam.dailypulse.di.databaseModule
 import elmeniawy.eslam.dailypulse.di.sharedKoinModules
 import elmeniawy.eslam.dailypulse.di.viewModelsModule
 import org.koin.android.ext.koin.androidContext
@@ -19,7 +20,7 @@ class DailyPulseApp : Application() {
     }
 
     private fun initKoin() {
-        val modules = sharedKoinModules + viewModelsModule
+        val modules = sharedKoinModules + viewModelsModule + databaseModule
 
         startKoin {
             androidContext(this@DailyPulseApp)
