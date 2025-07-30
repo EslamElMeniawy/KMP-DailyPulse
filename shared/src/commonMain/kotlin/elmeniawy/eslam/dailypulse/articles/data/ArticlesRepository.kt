@@ -1,4 +1,4 @@
-package elmeniawy.eslam.dailypulse.articles
+package elmeniawy.eslam.dailypulse.articles.data
 
 /**
  * ArticlesRepository

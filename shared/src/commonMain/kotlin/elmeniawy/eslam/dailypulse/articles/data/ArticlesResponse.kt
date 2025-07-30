@@ -1,4 +1,4 @@
-package elmeniawy.eslam.dailypulse.articles
+package elmeniawy.eslam.dailypulse.articles.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

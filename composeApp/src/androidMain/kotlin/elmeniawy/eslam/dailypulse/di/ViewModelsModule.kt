@@ -1,6 +1,6 @@
 package elmeniawy.eslam.dailypulse.di
 
-import elmeniawy.eslam.dailypulse.articles.ArticlesViewModel
+import elmeniawy.eslam.dailypulse.articles.presentation.ArticlesViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 

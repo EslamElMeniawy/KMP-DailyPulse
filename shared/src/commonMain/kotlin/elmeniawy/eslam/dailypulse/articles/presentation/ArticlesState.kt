@@ -1,4 +1,6 @@
-package elmeniawy.eslam.dailypulse.articles
+package elmeniawy.eslam.dailypulse.articles.presentation
+
+import elmeniawy.eslam.dailypulse.articles.domain.Article
 
 /**
  * ArticlesState

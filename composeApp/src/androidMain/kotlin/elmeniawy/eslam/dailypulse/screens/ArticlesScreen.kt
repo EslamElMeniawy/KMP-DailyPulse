@@ -33,8 +33,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import elmeniawy.eslam.dailypulse.TAG
-import elmeniawy.eslam.dailypulse.articles.Article
-import elmeniawy.eslam.dailypulse.articles.ArticlesViewModel
+import elmeniawy.eslam.dailypulse.articles.domain.Article
+import elmeniawy.eslam.dailypulse.articles.presentation.ArticlesViewModel
 import org.koin.androidx.compose.koinViewModel
 
 /**

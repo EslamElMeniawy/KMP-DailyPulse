@@ -1,4 +1,4 @@
-package elmeniawy.eslam.dailypulse.articles
+package elmeniawy.eslam.dailypulse.articles.data
 
 import elmeniawy.eslam.dailypulse.BuildKonfig.API_KEY
 import io.ktor.client.HttpClient

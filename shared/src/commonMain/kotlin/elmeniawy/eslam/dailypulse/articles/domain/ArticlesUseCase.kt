@@ -1,7 +1,9 @@
 @file:OptIn(ExperimentalTime::class)
 
-package elmeniawy.eslam.dailypulse.articles
+package elmeniawy.eslam.dailypulse.articles.domain
 
+import elmeniawy.eslam.dailypulse.articles.data.ArticleRaw
+import elmeniawy.eslam.dailypulse.articles.data.ArticlesRepository
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.daysUntil
 import kotlinx.datetime.toLocalDateTime
@@ -41,10 +43,10 @@ class ArticlesUseCase(private val _repository: ArticlesRepository) {
             return null
         }
 
-        val today = Clock.System.todayIn(TimeZone.currentSystemDefault())
+        val today = Clock.System.todayIn(TimeZone.Companion.currentSystemDefault())
 
         val days = today.daysUntil(
-            Instant.parse(date).toLocalDateTime(TimeZone.currentSystemDefault()).date
+            Instant.Companion.parse(date).toLocalDateTime(TimeZone.Companion.currentSystemDefault()).date
         )
 
         val positiveDays = abs(days)

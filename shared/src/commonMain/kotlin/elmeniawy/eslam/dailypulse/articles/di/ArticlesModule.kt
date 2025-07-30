@@ -1,10 +1,10 @@
 package elmeniawy.eslam.dailypulse.articles.di
 
-import elmeniawy.eslam.dailypulse.articles.ArticlesDataSource
-import elmeniawy.eslam.dailypulse.articles.ArticlesRepository
-import elmeniawy.eslam.dailypulse.articles.ArticlesService
-import elmeniawy.eslam.dailypulse.articles.ArticlesUseCase
-import elmeniawy.eslam.dailypulse.articles.ArticlesViewModel
+import elmeniawy.eslam.dailypulse.articles.data.ArticlesDataSource
+import elmeniawy.eslam.dailypulse.articles.data.ArticlesRepository
+import elmeniawy.eslam.dailypulse.articles.data.ArticlesService
+import elmeniawy.eslam.dailypulse.articles.domain.ArticlesUseCase
+import elmeniawy.eslam.dailypulse.articles.presentation.ArticlesViewModel
 import org.koin.dsl.module
 
 /**
