@@ -1,6 +1,7 @@
 package elmeniawy.eslam.dailypulse.di
 
 import elmeniawy.eslam.dailypulse.articles.di.articlesModule
+import elmeniawy.eslam.dailypulse.sources.di.sourcesModule
 
 /**
  * SharedKoinModules
@@ -9,6 +10,7 @@ import elmeniawy.eslam.dailypulse.articles.di.articlesModule
  */
 
 val sharedKoinModules = listOf(
+    networkModule,
     articlesModule,
-    networkModule
+    sourcesModule
 )

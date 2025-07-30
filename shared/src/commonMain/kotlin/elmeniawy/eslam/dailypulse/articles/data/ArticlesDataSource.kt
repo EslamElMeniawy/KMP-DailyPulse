@@ -23,16 +23,16 @@ class ArticlesDataSource(private val _database: DailyPulseDatabase) {
 
     private fun mapToArticlesRaw(
         title: String?,
-        des: String?,
+        description: String?,
         date: String?,
         imageUrl: String?
     ): ArticleRaw =
-        ArticleRaw(title, des, date, imageUrl)
+        ArticleRaw(title, description, date, imageUrl)
 
     private fun insertArticle(articleRaw: ArticleRaw) {
         _database.dailyPulseDatabaseQueries.insertArticle(
             articleRaw.title,
-            articleRaw.desc,
+            articleRaw.description,
             articleRaw.date,
             articleRaw.imageUrl
         )

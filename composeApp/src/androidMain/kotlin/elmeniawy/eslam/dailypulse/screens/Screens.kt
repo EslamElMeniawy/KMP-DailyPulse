@@ -7,5 +7,6 @@ package elmeniawy.eslam.dailypulse.screens
  */
 enum class Screens(val route: String) {
     ARTICLES("articles"),
+    SOURCES("sources"),
     SYSTEM_INFO("system-info")
 }

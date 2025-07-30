@@ -1,6 +1,7 @@
 package elmeniawy.eslam.dailypulse.di
 
 import elmeniawy.eslam.dailypulse.articles.presentation.ArticlesViewModel
+import elmeniawy.eslam.dailypulse.sources.presentation.SourcesViewModel
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import org.koin.core.context.startKoin
@@ -21,4 +22,8 @@ fun initKoin() {
 
 class ArticlesInjector : KoinComponent {
     val articlesViewModel: ArticlesViewModel by inject()
+}
+
+class SourcesInjector : KoinComponent {
+    val sourcesViewModel: SourcesViewModel by inject()
 }

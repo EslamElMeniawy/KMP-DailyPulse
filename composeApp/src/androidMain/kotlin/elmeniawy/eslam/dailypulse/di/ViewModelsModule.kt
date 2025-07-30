@@ -1,6 +1,7 @@
 package elmeniawy.eslam.dailypulse.di
 
 import elmeniawy.eslam.dailypulse.articles.presentation.ArticlesViewModel
+import elmeniawy.eslam.dailypulse.sources.presentation.SourcesViewModel
 import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
@@ -12,4 +13,5 @@ import org.koin.dsl.module
 
 val viewModelsModule = module {
     viewModel { ArticlesViewModel(get()) }
+    viewModel { SourcesViewModel(get()) }
 }

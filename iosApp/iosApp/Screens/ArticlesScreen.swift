@@ -38,7 +38,7 @@ struct ArticlesScreen: View {
             AppBar()
 
             if let error = viewModel.articlesState.error {
-                ErrorMessage(message: error)
+                ArticlesErrorMessage(message: error)
             } else {
                 ScrollView {
                     LazyVStack(spacing: 10) {
@@ -66,6 +66,14 @@ struct AppBar: View {
     }
 }
 
+struct ArticlesErrorMessage: View {
+    var message: String
+
+    var body: some View {
+        Text(message).font(.title)
+    }
+}
+
 struct ArticleItemView: View {
     var article: Article
 
@@ -85,26 +93,12 @@ struct ArticleItemView: View {
                 .font(.title)
                 .fontWeight(.bold)
 
-            Text(article.des ?? "")
+            Text(article.description_ ?? "")
 
             Text(article.date ?? "")
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .foregroundStyle(.gray)
         }.padding(16)
-    }
-}
-
-struct Loader: View {
-    var body: some View {
-        ProgressView()
-    }
-}
-
-struct ErrorMessage: View {
-    var message: String
-
-    var body: some View {
-        Text(message).font(.title)
     }
 }
 

@@ -32,7 +32,7 @@ class ArticlesUseCase(private val _repository: ArticlesRepository) {
     private fun mapNotNullArticles(articlesRaw: List<ArticleRaw>): List<Article> = articlesRaw.map {
         Article(
             title = it.title,
-            des = it.desc,
+            description = it.description,
             date = getDaysAgoString(it.date),
             imageUrl = it.imageUrl ?: "https://placehold.co/600x400"
         )

@@ -7,7 +7,7 @@ package elmeniawy.eslam.dailypulse.articles.domain
  */
 data class Article(
     val title: String?,
-    val des: String?,
+    val description: String?,
     val date: String?,
     val imageUrl: String?
 )

@@ -13,6 +13,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import elmeniawy.eslam.dailypulse.screens.ArticlesScreen
 import elmeniawy.eslam.dailypulse.screens.Screens
+import elmeniawy.eslam.dailypulse.screens.SourcesScreen
 import elmeniawy.eslam.dailypulse.screens.SystemInfoScreen
 
 /**
@@ -47,7 +48,13 @@ fun AppNavHost(
     ) {
         composable(Screens.ARTICLES.route) {
             ArticlesScreen(
-                onSystemInfoButtonClick = { navController.navigate(Screens.SYSTEM_INFO.route) }
+                onSystemInfoButtonClick = { navController.navigate(Screens.SYSTEM_INFO.route) },
+                onSourcesButtonClick = { navController.navigate(Screens.SOURCES.route) }
+            )
+        }
+        composable(Screens.SOURCES.route) {
+            SourcesScreen(
+                onBackButtonClick = { navController.popBackStack() }
             )
         }
         composable(Screens.SYSTEM_INFO.route) {
