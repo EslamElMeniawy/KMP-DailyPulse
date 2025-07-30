@@ -9,15 +9,24 @@ class ArticlesRepository(
     private val _dataSource: ArticlesDataSource,
     private val _service: ArticlesService
 ) {
-    suspend fun getArticles(): List<ArticleRaw>? {
+    suspend fun getArticles(forceFetch: Boolean): List<ArticleRaw>? {
+        if (forceFetch) {
+            _dataSource.clearArticles()
+            return fetchArticles()
+        }
+
         val articlesDb = _dataSource.getAllArticles()
 
         if (articlesDb.isEmpty()) {
-            val fetchedArticles = _service.fetchArticles()
-            _dataSource.insertArticles(fetchedArticles)
-            return fetchedArticles
+            return fetchArticles()
         }
 
         return articlesDb
+    }
+
+    private suspend fun fetchArticles(): List<ArticleRaw>? {
+        val fetchedArticles = _service.fetchArticles()
+        _dataSource.insertArticles(fetchedArticles)
+        return fetchedArticles
     }
 }

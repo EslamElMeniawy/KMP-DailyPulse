@@ -4,8 +4,10 @@ struct ContentView: View {
     @State private var shouldOpenSystenInfo = false
 
     var body: some View {
+        let articlesScreen = ArticlesScreen(viewModel: .init())
+
         NavigationStack {
-            ArticlesScreen(viewModel: .init())
+            articlesScreen
                 .toolbar {
                     ToolbarItem {
                         Button {
@@ -18,6 +20,11 @@ struct ContentView: View {
                             SystemInfoScreen()
                         }
                     }
+                }
+                .refreshable {
+                    articlesScreen.viewModel.articlesViewModel.getArticles(
+                        forceFetch: true
+                    )
                 }
         }
     }

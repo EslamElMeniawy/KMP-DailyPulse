@@ -37,22 +37,17 @@ struct ArticlesScreen: View {
         VStack {
             AppBar()
 
-            if viewModel.articlesState.loading {
-                Loader()
-            }
-
             if let error = viewModel.articlesState.error {
                 ErrorMessage(message: error)
-            }
-
-            if let articles = viewModel.articlesState.articles {
-                if !articles.isEmpty {
-                    ScrollView {
-                        LazyVStack(spacing: 10) {
-                            ForEach(articles, id: \.self) {
-                                article in
-                                ArticleItemView(article: article)
-                            }
+            } else {
+                ScrollView {
+                    LazyVStack(spacing: 10) {
+                        ForEach(
+                            viewModel.articlesState.articles ?? [],
+                            id: \.self
+                        ) {
+                            article in
+                            ArticleItemView(article: article)
                         }
                     }
                 }

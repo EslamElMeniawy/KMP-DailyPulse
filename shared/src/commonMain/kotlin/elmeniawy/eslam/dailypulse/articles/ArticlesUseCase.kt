@@ -17,8 +17,8 @@ import kotlin.time.Instant
  * Created by Eslam El-Meniawy on 20-Jul-2025 at 3:41 PM.
  */
 class ArticlesUseCase(private val _repository: ArticlesRepository) {
-    suspend fun getArticles(): List<Article>? {
-        val articlesRaw = _repository.getArticles()
+    suspend fun getArticles(forceFetch: Boolean): List<Article>? {
+        val articlesRaw = _repository.getArticles(forceFetch)
         return mapArticles(articlesRaw)
     }
 
